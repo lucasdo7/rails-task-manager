@@ -1,0 +1,7 @@
+<h1>All my tasks (done and undone) 📃</h1>
+
+<ul>
+  <% @task.each do |task| %>
+  <li><%= task.title task.completed %></li>
+  <% end %>
+</ul>
