@@ -1,14 +1,6 @@
 <h1>Edit a task</h1>
 
-<%= form_for @task do |t| %>
-<%= t.label :title %>
-<%= t.text_field :title %>
-<%= t.label :details %>
-<%= t.text_field :details %>
-<%= t.label :completed %>
-<%= t.text_field :completed %>
-<%= t.submit%>
-<% end %>
+<%= render 'form', task: @task %>
 
 <br><br>
 <%= link_to 'back to list', tasks_path %>
