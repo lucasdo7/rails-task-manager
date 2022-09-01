@@ -3,11 +3,17 @@
 <ul>
   <% @tasks.each do |task| %>
     <li>
+      <% if task.completed? %>
+        <i class="fa-solid fa-square-check"></i>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end %>
       <%= link_to task.title, task_path(task) %>
-      <%= link_to "Delete", task_path(task), class: "btn btn-danger",
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
+        <i class="fa-regular fa-trash-can"></i>
+        <% end %>
     </li>
   <% end %>
 </ul>
-
-<%= link_to "create a task", task_new_path, class: 'btn btn-primary' %>
+  <%= link_to "create a task", task_new_path, class: 'btn btn-primary' %>
+  <hr>

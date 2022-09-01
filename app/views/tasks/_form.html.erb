@@ -1,9 +1,6 @@
-<%= form_for task do |t| %>
-<%= t.label :title %>
-<%= t.text_field :title %>
-<%= t.label :details %>
-<%= t.text_field :details %>
-<%= t.label :completed %>
-<%= t.text_field :completed %>
-<%= t.submit%>
+<%= simple_form_for task do |d| %>
+  <%= d.input :title, placeholder: 'washing the dishes' %>
+  <%= d.input :details, placeholder: '1 hour do to this task' %>
+  <%= d.input :completed, collection: ['true', 'false'], hint: 'True or false' %>
+  <%= d.button :submit, class: "btn btn-primary" %> , <%= link_to "back to task", tasks_path, class: 'btn btn-danger' %>
 <% end %>

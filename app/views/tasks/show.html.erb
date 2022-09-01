@@ -1,13 +1,15 @@
-<h1>Info of Task</h1>
+<div class="container mt-5">
+  <h1>Info of <%= @task.title %></h1>
 
-<p><%= @task.title %></p>
-<p><%= @task.details %></p>
-<p><%= @task.completed %></p>
-
-<%= link_to "Back to tasks", tasks_path, class: "btn btn-primary" %>
-
-
-<%= link_to "Update", edit_task_path, class: "btn btn-primary" %>
-
-<%= link_to "Delete", task_path(@task), class: "btn btn-danger",
-data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <p><%= @task.details %></p>
+      <% if @task.completed %>
+        <i class="fa fa-check-square-o"></i> This task is completed
+      <% else %>
+        <i class="fa fa-square-o"></i> This task is not completed yet
+      <% end %>
+        <hr>
+      <%= link_to edit_task_path(@task), class: 'btn btn-light btn-sm border' do %>
+        Edit this task
+      <% end %>
+        <%= link_to "Back to tasks", tasks_path, class: "btn btn-primary" %>
+</div>
