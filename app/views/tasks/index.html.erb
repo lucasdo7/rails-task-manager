@@ -15,5 +15,7 @@
     </li>
   <% end %>
 </ul>
-  <%= link_to "create a task", task_new_path, class: 'btn btn-primary' %>
+    <%= link_to task_new_path do %>
+      <i class="fa-solid fa-plus"></i> Create task
+    <% end %>
   <hr>

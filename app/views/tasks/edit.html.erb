@@ -1,5 +1,19 @@
 <h1>Edit a task</h1><hr>
 
-<%= render 'form', task: @task %>
+<%= simple_form_for @task do |d| %>
+  <%= d.input :title, placeholder: 'washing the dishes' %>
+  <%= d.input :details, placeholder: '1 hour do to this task' %>
+  <%= d.input :completed, collection: ['true', 'false']%>
+  <%= d.button :submit, class: "btn btn-primary" %>
+  <%= link_to "back to task", tasks_path, class: 'btn btn-danger' %>
+<% end %>
 
 <br><br>
+
+
+
+
+
+<%# <%= d.collection_check_boxes :completed, [[true, 'Completed']], :first, :last %>
+
+<%# <%= render 'form', task: @task %>
