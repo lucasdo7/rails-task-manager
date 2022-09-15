@@ -1,16 +1,14 @@
-<h1>create a new task</h1>
-<hr>
-
-<%= simple_form_for @task do |d| %>
-  <%= d.input :title, placeholder: 'washing the dishes' %>
-  <%= d.input :details, placeholder: '1 hour do to this task' %>
-  <%= d.input :completed, collection: ['true', 'false']%>
-  <%= d.button :submit, class: "btn btn-primary" %>
-  <%= link_to tasks_path do %>
-    <i class="fa-solid fa-arrow-rotate-left"></i> Back to tasks
+<div class="container">
+  <br><h1>Create a new task</h1><hr>
+  <%= simple_form_for @task do |d| %>
+    <%= d.input :title, placeholder: 'washing the dishes' %>
+    <%= d.input :details, placeholder: '1 hour do to this task' %>
+    <%= d.input :completed, collection: ['true', 'false']%>
+    <%= d.button :submit, class: "btn btn-primary btn-sm" %>
+    <%= link_to tasks_path do %>
+      <i class="fa-solid fa-arrow-rotate-left"></i><span class="badge rounded-pill bg-primary">Back to tasks</span>
+    <% end %>
   <% end %>
-<% end %>
-
-<br><br>
-
+  <br><br>
+</div>
   <%# <%= d.collection_check_boxes :completed, [[true, 'Completed']], :first, :last %>
